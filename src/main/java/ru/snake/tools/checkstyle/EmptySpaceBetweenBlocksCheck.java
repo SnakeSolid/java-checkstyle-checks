@@ -4,6 +4,15 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
+/**
+ * Validate number of empty line between open curly brace and following code or
+ * closing curly brace and previous code. Number of empty line can be defined
+ * using {@link EmptySpaceBetweenBlocksCheck#numLines} parameter. By default
+ * number of empty line is zero.
+ *
+ * @author snake
+ *
+ */
 public class EmptySpaceBetweenBlocksCheck extends AbstractCheck {
 
 	public static final String MSG_EMPTY_LINES_AFTER = "Number of empty lines after '{' greater than {0}";
@@ -12,27 +21,18 @@ public class EmptySpaceBetweenBlocksCheck extends AbstractCheck {
 
 	private int numLines;
 
+	/**
+	 * Set number of lines parameter.
+	 *
+	 * @param numLines
+	 *            number of lines
+	 */
 	public void setNumLines(int numLines) {
 		if (numLines < 0) {
 			throw new IllegalArgumentException("Parameter numLines must be greater than zero");
 		}
 
 		this.numLines = numLines;
-	}
-
-	@Override
-	public int[] getDefaultTokens() {
-		return getAcceptableTokens();
-	}
-
-	@Override
-	public int[] getAcceptableTokens() {
-		return new int[] { TokenTypes.LCURLY, TokenTypes.SLIST, TokenTypes.RCURLY, };
-	}
-
-	@Override
-	public int[] getRequiredTokens() {
-		return new int[] {};
 	}
 
 	@Override
@@ -98,10 +98,69 @@ public class EmptySpaceBetweenBlocksCheck extends AbstractCheck {
 		DetailAST result = ast;
 
 		while (result != null && result.getChildCount() > 0) {
-			result = result.getFirstChild();
+			switch (result.getType()) {
+			case TokenTypes.CTOR_DEF:
+			case TokenTypes.METHOD_DEF:
+			case TokenTypes.VARIABLE_DEF:
+				result = scanComment(result);
+				break;
+
+			default:
+				result = result.getFirstChild();
+				break;
+			}
 		}
 
 		return result;
+	}
+
+	/**
+	 * Scan for nearest comment for method or variable definition. Used to skip
+	 * empty modifiers node when modifiers not defined. Returns first node with
+	 * children or first child node.
+	 *
+	 * @param ast
+	 *            ast
+	 * @return node with comment or first child
+	 */
+	private DetailAST scanComment(DetailAST ast) {
+		DetailAST result = ast.getFirstChild();
+		int resultLineNo = result.getLineNo();
+		DetailAST current = result;
+
+		while (current != null) {
+			if (current.getLineNo() > resultLineNo) {
+				break;
+			}
+
+			if (current.getChildCount() > 0) {
+				return current.getFirstChild();
+			}
+
+			current = current.getNextSibling();
+		}
+
+		return result;
+	}
+
+	@Override
+	public int[] getDefaultTokens() {
+		return getAcceptableTokens();
+	}
+
+	@Override
+	public int[] getAcceptableTokens() {
+		return new int[] { TokenTypes.LCURLY, TokenTypes.SLIST, TokenTypes.RCURLY, };
+	}
+
+	@Override
+	public int[] getRequiredTokens() {
+		return new int[] {};
+	}
+
+	@Override
+	public boolean isCommentNodesRequired() {
+		return true;
 	}
 
 }
