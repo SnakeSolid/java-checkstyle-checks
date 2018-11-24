@@ -15,9 +15,9 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
  */
 public class EmptySpaceBetweenBlocksCheck extends AbstractCheck {
 
-	public static final String MSG_EMPTY_LINES_AFTER = "Number of empty lines after '{' greater than {0}";
+	private static final String MSG_EMPTY_LINES_AFTER = "Number of empty lines after '{' greater than {0}";
 
-	public static final String MSG_EMPTY_LINES_BEFORE = "Number of empty lines before '}' greater than {0}";
+	private static final String MSG_EMPTY_LINES_BEFORE = "Number of empty lines before '}' greater than {0}";
 
 	private int numLines;
 

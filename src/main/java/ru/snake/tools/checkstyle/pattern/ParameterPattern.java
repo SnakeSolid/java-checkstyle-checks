@@ -2,10 +2,25 @@ package ru.snake.tools.checkstyle.pattern;
 
 import java.util.Map;
 
+import ru.snake.tools.checkstyle.MultiPatternHeaderCheck;
+
+/**
+ * Parameter pattern. This class internally used in
+ * {@link MultiPatternHeaderCheck} to match field with file name.
+ *
+ * @author snake
+ *
+ */
 public class ParameterPattern implements Pattern {
 
 	private final String parameter;
 
+	/**
+	 * Create new instance of parameter pattern matcher.
+	 *
+	 * @param parameter
+	 *            parameter name to use
+	 */
 	public ParameterPattern(String parameter) {
 		this.parameter = parameter;
 	}

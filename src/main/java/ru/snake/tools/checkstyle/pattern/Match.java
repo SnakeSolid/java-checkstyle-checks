@@ -16,10 +16,19 @@ package ru.snake.tools.checkstyle.pattern;
  */
 public class Match {
 
+	/**
+	 * true if pattern matched successfully, otherwise false.
+	 */
 	public final boolean isSuccess;
 
+	/**
+	 * Matched patter length or -1.
+	 */
 	public final int length;
 
+	/**
+	 * Description of matching error or null.
+	 */
 	public final String message;
 
 	/**
@@ -27,6 +36,7 @@ public class Match {
 	 *
 	 * @param length
 	 *            pattern length
+	 * @return new success match
 	 */
 	public static Match success(int length) {
 		return new Match(true, length, null);
@@ -37,6 +47,7 @@ public class Match {
 	 *
 	 * @param message
 	 *            error message
+	 * @return new fail match
 	 */
 	public static Match fail(String message) {
 		return new Match(false, -1, message);

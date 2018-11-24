@@ -3,6 +3,11 @@ package ru.snake.tools.checkstyle.pattern;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ *
+ * @author snake
+ *
+ */
 public class OneOfPatternTest {
 
 	@Test

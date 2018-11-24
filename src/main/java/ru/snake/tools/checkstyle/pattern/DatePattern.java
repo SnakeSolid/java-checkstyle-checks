@@ -5,12 +5,27 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Map;
 
+import ru.snake.tools.checkstyle.MultiPatternHeaderCheck;
+
+/**
+ * Date format pattern. This class internally used in
+ * {@link MultiPatternHeaderCheck} to check fields marked as date.
+ *
+ * @author snake
+ *
+ */
 public class DatePattern implements Pattern {
 
 	private final String pattern;
 
 	private final DateTimeFormatter format;
 
+	/**
+	 * Create new date pattern using given date format.
+	 *
+	 * @param pattern
+	 *            date format pattern
+	 */
 	public DatePattern(String pattern) {
 		this.pattern = pattern;
 		this.format = DateTimeFormatter.ofPattern(pattern);

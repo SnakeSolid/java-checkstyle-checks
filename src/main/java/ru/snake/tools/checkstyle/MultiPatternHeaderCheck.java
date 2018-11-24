@@ -7,16 +7,24 @@ import java.util.regex.PatternSyntaxException;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.FileText;
 import com.puppycrawl.tools.checkstyle.checks.header.AbstractHeaderCheck;
+import com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheck;
 
 import ru.snake.tools.checkstyle.pattern.MatchResult;
 import ru.snake.tools.checkstyle.pattern.Patterns;
 import ru.snake.tools.checkstyle.pattern.PattersBuilder;
 
+/**
+ * Checked similar to {@link RegexpHeaderCheck}, but support file name check and
+ * date time validation.
+ *
+ * @author snake
+ *
+ */
 public class MultiPatternHeaderCheck extends AbstractHeaderCheck {
 
-	public static final String MSG_HEADER_MISSING = "File header missing";
+	private static final String MSG_HEADER_MISSING = "File header missing";
 
-	public static final String MSG_HEADER_MISMATCH = "Missmatch file header: {0}";
+	private static final String MSG_HEADER_MISMATCH = "Missmatch file header: {0}";
 
 	private Patterns patterns;
 

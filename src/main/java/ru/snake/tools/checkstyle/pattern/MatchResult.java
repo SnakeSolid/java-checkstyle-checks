@@ -14,16 +14,25 @@ package ru.snake.tools.checkstyle.pattern;
  */
 public class MatchResult {
 
+	/**
+	 * true if match success, otherwise false.
+	 */
 	public final boolean isSuccess;
 
+	/**
+	 * Index of first non matched pattern or -1.
+	 */
 	public final int errorIndex;
 
+	/**
+	 * Matching error message.
+	 */
 	public final String errorMessage;
 
 	/**
 	 * Create new success match result object.
 	 *
-	 * @return new match result
+	 * @return new success match result
 	 */
 	public static MatchResult success() {
 		return new MatchResult(true, -1, null);
@@ -37,13 +46,13 @@ public class MatchResult {
 	 *            error index
 	 * @param errorMessage
 	 *            error message
-	 * @return
+	 * @return new fail match result
 	 */
 	public static MatchResult fail(int errorIndex, String errorMessage) {
 		return new MatchResult(false, errorIndex, errorMessage);
 	}
 
-	public MatchResult(boolean isSuccess, int errorIndex, String errorMessage) {
+	private MatchResult(boolean isSuccess, int errorIndex, String errorMessage) {
 		this.isSuccess = isSuccess;
 		this.errorIndex = errorIndex;
 		this.errorMessage = errorMessage;

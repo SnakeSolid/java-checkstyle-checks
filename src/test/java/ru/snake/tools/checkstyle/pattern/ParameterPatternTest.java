@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ *
+ * @author snake
+ *
+ */
 public class ParameterPatternTest {
 
 	private Map<String, String> parameters;

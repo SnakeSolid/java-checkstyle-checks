@@ -2,6 +2,13 @@ package ru.snake.tools.checkstyle.pattern;
 
 import java.util.Map;
 
+/**
+ * Common pattern interface. Instance of this class represents single header
+ * pattern like text string or date.
+ *
+ * @author snake
+ *
+ */
 public interface Pattern {
 
 	/**
