@@ -1,4 +1,4 @@
-package ru.snake.tools.checkstyle;
+package ru.snake.tools.checkstyle.checks;
 
 import java.io.File;
 import java.util.List;

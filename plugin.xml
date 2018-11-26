@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+    <!-- This plugin provides custom Checkstyle modules. -->
+    <extension
+          point="net.sf.eclipsecs.core.checkstyleAddonProvider">
+    </extension>
+
+    <!-- This plugin provides custom quickfixes for Checkstyle problems. -->
+    <extension
+          point="net.sf.eclipsecs.ui.checkstyleQuickfixProvider">
+    </extension>
+
+    <!--
+        Builtin check configuration
+    -->
+    <extension
+        id="checkstyle.CheckConfiguration"
+        point="net.sf.eclipsecs.core.configurations">
+        <check-configuration
+            name="Sample Builtin Checks"
+            location="sample_checks.xml"
+            description="Sample Built-in configuration"
+            default-weight="1" />
+    </extension>
+</plugin>

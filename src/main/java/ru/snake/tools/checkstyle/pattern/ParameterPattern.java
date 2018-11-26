@@ -2,7 +2,7 @@ package ru.snake.tools.checkstyle.pattern;
 
 import java.util.Map;
 
-import ru.snake.tools.checkstyle.MultiPatternHeaderCheck;
+import ru.snake.tools.checkstyle.checks.MultiPatternHeaderCheck;
 
 /**
  * Parameter pattern. This class internally used in

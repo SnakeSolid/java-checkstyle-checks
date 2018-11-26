@@ -4,9 +4,8 @@
 	<groupId>ru.snake.tools</groupId>
 	<artifactId>checkstyle-checks</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<name>checkstyle-checks</name>
-	<description>Custom specific checks for checkstype.</description>
+	<description>eclipse-cs Extended Checks Plugin</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

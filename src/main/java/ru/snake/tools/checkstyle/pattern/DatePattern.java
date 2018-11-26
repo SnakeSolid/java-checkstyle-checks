@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Map;
 
-import ru.snake.tools.checkstyle.MultiPatternHeaderCheck;
+import ru.snake.tools.checkstyle.checks.MultiPatternHeaderCheck;
 
 /**
  * Date format pattern. This class internally used in

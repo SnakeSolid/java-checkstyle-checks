@@ -1,4 +1,4 @@
-package ru.snake.tools.checkstyle;
+package ru.snake.tools.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
@@ -63,9 +63,9 @@ public class EmptySpaceBetweenBlocksCheck extends AbstractCheck {
 			int otherLine = otherToken.getLineNo();
 
 			if (otherLine - currentLine > this.numLines + 1) {
-				log(currentLine + this.numLines + 1, MSG_EMPTY_LINES_AFTER, this.numLines);
+				log(currentLine, MSG_EMPTY_LINES_AFTER, this.numLines);
 			} else if (currentLine - otherLine > this.numLines + 1) {
-				log(otherLine + this.numLines + 1, MSG_EMPTY_LINES_BEFORE, this.numLines);
+				log(currentLine, MSG_EMPTY_LINES_BEFORE, this.numLines);
 			}
 		}
 	}

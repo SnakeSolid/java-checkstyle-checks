@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import ru.snake.tools.checkstyle.MultiPatternHeaderCheck;
+import ru.snake.tools.checkstyle.checks.MultiPatternHeaderCheck;
 
 /**
  * On of pattern. This class internally used in {@link MultiPatternHeaderCheck}

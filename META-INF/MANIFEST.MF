@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eclipse-cs Extended Checks Plugin
+Bundle-SymbolicName: ru.snake.tools.checkstyle;singleton:=true
+Bundle-Version: 8.12.0.qualifier
+Require-Bundle: net.sf.eclipsecs.checkstyle,
+ net.sf.eclipsecs.core,
+ net.sf.eclipsecs.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Shabanov Anton
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.jdt.core.dom,
+ org.eclipse.jface.resource,
+ org.eclipse.jface.text,
+ org.eclipse.swt.graphics,
+ org.eclipse.ui
+Automatic-Module-Name: ru.snake.tools.checkstyle
+Export-Package: ru.snake.tools.checkstyle.checks;uses:="com.puppycrawl.tools.checkstyle.checks.header,com.puppycrawl.tools.checkstyle.api",
+ ru.snake.tools.checkstyle.pattern
